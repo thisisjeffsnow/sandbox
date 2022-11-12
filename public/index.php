@@ -15,3 +15,5 @@ use Sandbox\IndexController;
 
 $index_controller = new IndexController();
 $index_controller->index();
+
+/* Test */
