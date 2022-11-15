@@ -3,6 +3,7 @@
  * Application Entry
  */
 define('BASE', realpath(__DIR__ . '/../'));
+define('BASE_URL', 'https://sandbox.local');
 
 spl_autoload_register(
     function ($class) {
