@@ -18,3 +18,4 @@ $index_controller = new IndexController();
 $index_controller->index();
 
 /* Test */
+echo "Adding new stuff to branch.";
