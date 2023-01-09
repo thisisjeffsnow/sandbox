@@ -1,0 +1,15 @@
+{
+    "name": "thisisjeffsnow/sandbox",
+    "autoload": {
+        "psr-4": {
+            "Thisisjeffsnow\\Sandbox\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jeff Snow",
+            "email": "94205783+thisisjeffsnow@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
