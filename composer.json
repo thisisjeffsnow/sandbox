@@ -2,7 +2,7 @@
     "name": "thisisjeffsnow/sandbox",
     "autoload": {
         "psr-4": {
-            "Thisisjeffsnow\\Sandbox\\": "src/"
+            "Sandbox\\": "src/"
         }
     },
     "authors": [
