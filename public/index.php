@@ -1,4 +1,4 @@
-<?php
+<pre><?php
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use Sandbox\Core\Router;
@@ -11,6 +11,8 @@ $router->addRoute(
     "Sandbox\MainController",
     "getMain"
 );
+var_dump($router);
 
 $request = new Request();
 $router->resolveRoute($request);
+
