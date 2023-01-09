@@ -8,10 +8,9 @@ $router = new Router();
 $router->addRoute(
     Request::METHOD_GET,
     "/",
-    "Sandbox\MainController",
+    "Sandbox\Controller\MainController",
     "getMain"
 );
-var_dump($router);
 
 $request = new Request();
 $router->resolveRoute($request);

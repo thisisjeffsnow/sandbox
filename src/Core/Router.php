@@ -27,16 +27,15 @@ class Router
         $requestMethod = $request->method();
         $requestPath = $request->path();
         $requestRoute = $this->routeMap[$requestMethod][$requestPath] ?? [
-            "class" => "Sandbox\Core\Controeller",
+            "class" => "Sandbox\Controller\DefaultController",
             "method" => "defaultRoute",
         ];
         $routeClass = $requestRoute["class"];
 
         if (!class_exists($routeClass)) {
-            $message = <<<MSG
-The controller ($routeClass) supplied as an argument in Router->addRoute
-does not exist or is not accessible.
-MSG;
+            $message =
+                "The controller ($routeClass) supplied as an argument " .
+                "in Router->addRoute does not exist or is not accessible.";
             throw new BadRouteException($message);
         }
         $requestClass = new ($requestRoute["class"])();
