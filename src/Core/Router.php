@@ -3,6 +3,7 @@
 namespace Sandbox\Core;
 
 use Sandbox\Exception\BadRouteException;
+use Sandbox\Exception\BadRouteMethodException;
 
 class Router
 {
@@ -31,14 +32,21 @@ class Router
             "method" => "defaultRoute",
         ];
         $routeClass = $requestRoute["class"];
-
         if (!class_exists($routeClass)) {
             $message =
                 "The controller ($routeClass) supplied as an argument " .
-                "in Router->addRoute does not exist or is not accessible.";
+                "in Router->addRoute() does not exist or is not accessible.";
             throw new BadRouteException($message);
         }
-        $requestClass = new ($requestRoute["class"])();
-        $requestClass->{$requestRoute["method"]}($request);
+        $routeClassInstance = new $routeClass();
+        $routeMethod = $requestRoute["method"];
+        if (!method_exists($routeClass, $routeMethod)) {
+            $message =
+                "The method ($routeMethod) supplied for the controller " .
+                "($routeClass) in Router->addRoute() does not exist or is " .
+                " not accesible.";
+            throw new BadRouteMethodException($message);
+        }
+        $routeClassInstance->{$routeMethod}($request);
     }
 }
