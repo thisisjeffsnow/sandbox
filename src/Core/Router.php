@@ -2,6 +2,8 @@
 
 namespace Sandbox\Core;
 
+use Sandbox\Exception\BadRouteException;
+
 class Router
 {
     public function __construct(private array $routeMap = [])
@@ -25,11 +27,18 @@ class Router
         $requestMethod = $request->method();
         $requestPath = $request->path();
         $requestRoute = $this->routeMap[$requestMethod][$requestPath] ?? [
-            "class" => "Sandbox\Core\Controller",
+            "class" => "Sandbox\Core\Controeller",
             "method" => "defaultRoute",
         ];
+        $routeClass = $requestRoute["class"];
 
-        /* What happens if this class is not defined anywhere? */
+        if (!class_exists($routeClass)) {
+            $message = <<<MSG
+The controller ($routeClass) supplied as an argument in Router->addRoute
+does not exist or is not accessible.
+MSG;
+            throw new BadRouteException($message);
+        }
         $requestClass = new ($requestRoute["class"])();
         $requestClass->{$requestRoute["method"]}($request);
     }
