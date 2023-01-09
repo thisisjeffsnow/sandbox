@@ -7,7 +7,7 @@ class DefaultController extends Controller
 {
     public function defaultRoute()
     {
-        /* Call view class to display 404 page. */
+        /* Call View class to display 404 page. */
         echo "404.";
     }
 }
