@@ -8,7 +8,7 @@ $router = new Router();
 $router->addRoute(
     Request::METHOD_GET,
     "/",
-    "Sandbox\Controller\MainController",
+    "Sandbox\Controller\HomeController",
     "getMain"
 );
 

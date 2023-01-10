@@ -1,9 +1,8 @@
 <?php
 
 namespace Sandbox\Controller;
-use Sandbox\Core\Controller;
 
-class MainController extends Controller
+class MainController
 {
     public function getMain()
     {

@@ -1,13 +1,14 @@
 <?php
 
 namespace Sandbox\Controller;
-use Sandbox\Core\Controller;
+use Sandbox\Core\Request;
 
-class DefaultController extends Controller
+class DefaultController
 {
-    public function defaultRoute()
+    public function defaultRoute(Request $request)
     {
-        /* Call View class to display 404 page. */
-        echo "404.";
+        /* Create a view object. */
+        $view = new View("default", "404");
+        $view->render();
     }
 }
