@@ -2,6 +2,7 @@
 
 namespace Sandbox\Controller;
 use Sandbox\Core\Request;
+use Sandbox\View\View;
 
 class DefaultController
 {
