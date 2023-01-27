@@ -12,11 +12,12 @@ class View
 
     public function render(array $params = [])
     {
-        echo "<pre>";
-        echo "Params:\n";
-        var_dump($params);
-        echo "\n";
-        echo "Template Name: $this->templateName\n";
-        echo "Content Name: $this->contentName\n";
+        ob_start();
+        include __DIR__ . "/templates/{$this->templateName}.php";
+        $template = ob_get_clean();
+        ob_start();
+        include __DIR__ . "/contents/{$this->contentName}.php";
+        $content = ob_get_clean();
+        echo str_replace("{{content}}", $content, $template);
     }
 }

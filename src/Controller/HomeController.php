@@ -9,6 +9,9 @@ class HomeController
     public function getMain(Request $request): void
     {
         $view = new View("default", "main");
-        $view->render();
+        $params = [
+            "title" => "Main Page",
+        ];
+        $view->render($params);
     }
 }

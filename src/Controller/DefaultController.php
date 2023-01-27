@@ -10,6 +10,9 @@ class DefaultController
     {
         /* Create a view object. */
         $view = new View("default", "404");
-        $view->render();
+        $params = [
+            "title" => "404 Page",
+        ];
+        $view->render($params);
     }
 }
